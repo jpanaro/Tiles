@@ -21,6 +21,9 @@ a, a:hover, a:focus, a:active, a:visited {
 
 body, html {
   background-color: var(--background) !important;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
@@ -29,13 +32,42 @@ body, html {
 	font-family: Raleway;
 }
 
+header,
+footer {
+	width: 100%;
+	height: 100px;
+	box-sizing: border-box;
+	margin: 0;
+	background-color: inherit;
+}
+
+header {
+	top: 0;
+	padding: 24px 0;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	padding: 12px 48px;
+}
+
+#time {
+	background-color: var(--background);
+	color: var(--base-txt);
+	text-align: center;
+	font-size: 96px;
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
 #grid {
 	display: flex;
 	justify-content: center;
 	align-content: center;
 	flex-flow: row wrap;
 	box-sizing: border-box;
-	margin-top: 150px;
+	margin-top: 120px;
 }
 
 .tile {
@@ -82,25 +114,14 @@ body, html {
 	background-color: var(--background);
 	color: var(--base-txt);
 	box-sizing: border-box;
-	width: 96%;
-	height: 92%;
-	margin: 2% auto 2%;
-	padding: 4vh 4vw;
+	padding: 4vh 6vw;
 	text-align: center;
 	transition: .2s all;
-}
-
-#grid a:focus img,
-#grid a:hover img {
-	/* -webkit-filter: drop-shadow(3px 3px 0 var(--main-cl)) drop-shadow(-3px -3px 0 var(--comp-cl)); */
-	/* filter: drop-shadow(3px 3px 0 var(--main-cl)) drop-shadow(-3px -3px 0 var(--comp-cl)); */
 }
 
 #grid a:focus,
 #grid a:hover {
 	background-color: var(--hover-bg);
-	/* box-shadow: 3px 3px 0 var(--main-cl), -3px -3px 0 var(--comp-cl); */
-	/* outline: 0; */
 }
 
 #grid a .button {
@@ -113,30 +134,32 @@ body, html {
   color: var(--sub-txt);
 }
 
-header {
-	position: fixed;
-	top: 0;
-	width: 100%;
-	height: 150px;
-	box-sizing: border-box;
-	margin: 0;
-	padding: 24px 48px;
+#grid a img {
+	transition: 250ms all ease-in;
+}
+
+#grid a:focus img,
+#grid a:hover img {
+	transform: scale(1.5);
 }
 
 input[type="text"] {
 	background-color: var(--background);
+	color: var(--sub-txt);
 	outline: none;
 	border: none;
 	border-bottom: 4px solid var(--hover-bg);
 	font-size: 52px;
 	box-sizing: border-box;
-	padding: 8px 16px;
+	padding: 8px 0;
 	z-index: 1;
-	width: 100%;
+	width: 0;
 	transition: all 500ms;
 }
 
 input[type="text"]:focus {
+	width: 100%;
+	padding: 8px 16px;
 	border-bottom: 4px solid var(--base-txt);
 	color: var(--base-txt);
 	outline: none;
