@@ -32,88 +32,88 @@ var pages = {
   "~":[ // References -> use exact string of title (mostly for duplicates)
     // utility tiles
     ["@w","weather/01d","Weather","Updating..."],
-    ["#","ab","Next"," More Results","*"],
-    ["#","ba", "Back","To the Future","*"],
+    ["#","chevron-right","Next"," More Results","*"],
+    ["#","chevron-left", "Back","To the Future","*"],
     // links
-    ["https://www.linkedin.com","~linkedin","Linkedn","Professional"],
-    ["https://github.com","gh","Github","Repos"],
+    ["https://www.linkedin.com","linkedin","Linkedn","Professional"],
+    ["https://github.com","github","Github","Repos"],
     // folders
-    ["#","go","Themes","Colors"],
-    ["#","~e_learning","News","Headlines"],
-    ["#","~ctrl","Keyboards","Ctrl Alt Del"],
-    ["#","me","Media","Stream"],
-    ["#","~twitter","Networks","Social Media"],
-    ["#","mt","Code","~/hack.sh"],
+    ["#","desktop","Themes","Colors"],
+    ["#","newspaper-o","News","Headlines"],
+    ["#","keyboard-o","Keyboards","Ctrl Alt Del"],
+    ["#","music","Media","Stream"],
+    ["#","twitter","Networks","Social Media"],
+    ["#","code","Code","~/hack.sh"],
   ],
   "Home":[ // Index page loads at and resets to on end of search or 'esc'
-    ["https://github.com/kishlaya/Tiles","ba","Back","To Github","*"],
+    ["https://github.com/kishlaya/Tiles","chevron-left","Back","To Github","*"],
     ["~Github"], // example of reference
-    ["https://gmail.com","gm","Gmail","Inboxes","google"],
-    ["https://todoist.com/app#start","td","Todoist","Tasks"],
-    ["https://pcpartpicker.com","pc","PcParts","Pcpartpicker"],
+    ["https://gmail.com","envelope-o","Gmail","Inboxes","google"],
+    ["https://todoist.com/app#start","list","Todoist","Tasks"],
+    ["https://pcpartpicker.com","laptop","PcParts","Pcpartpicker"],
     ["~News"],
     ["~Media"],
     ["~Networks"],
     ["~Code"],
     ["~Keyboards"],
-    ["https://icons8.com","ic","Icons8","Icon Set"],
+    ["https://icons8.com","lock","Icons8","Icon Set"],
     ["~Themes"],
   ],
   "Keyboards":[
     ["#Home","esc","Back","Endgame Achieved?","*"],
-    ["https://www.massdrop.com/mechanical-keyboards","ct","Massdrop","GBs"],
-    ["https://www.reddit.com/r/MechanicalKeyboards/","re","r/MK","Reddit"],
-    ["https://mitormk.com","mt","MitoMK","Laser SA"],
-    ["https://www.jellykey.com","jy","JellyKeys","Artisans"],
-    ["https://keyhive.xyz/shop","hc","Key hive","Honeycomb"],
-    ["https://keeb.io","kb","Keeb.io","Iris/Split"],
-    ["https://discordapp.com","ds","Discord","QMK/PDXKBC"],
-    ["https://www.rpi.edu/dept/arc/training/latex/LaTeX_symbols.pdf","pi","Latex","Symbol Dictionary"],
-    ["http://www.keyboard-layout-editor.com","~ctrl","Keylayout","QMK Editor"],
-    ["https://thomasbaart.nl","key","QMK Basics","Tutorials"],
-    ["https://github.com/qmk/qmk_firmware/blob/master/docs/keycodes.md","qmk","QMK Keycodes","hyper(kc)"],
+    ["https://www.massdrop.com/mechanical-keyboards","lock","Massdrop","GBs"],
+    ["https://www.reddit.com/r/MechanicalKeyboards/","lock","r/MK","Reddit"],
+    ["https://mitormk.com","lock","MitoMK","Laser SA"],
+    ["https://www.jellykey.com","lock","JellyKeys","Artisans"],
+    ["https://keyhive.xyz/shop","lock","Key hive","Honeycomb"],
+    ["https://keeb.io","lock","Keeb.io","Iris/Split"],
+    ["https://discordapp.com","lock","Discord","QMK/PDXKBC"],
+    ["https://www.rpi.edu/dept/arc/training/latex/LaTeX_symbols.pdf","lock","Latex","Symbol Dictionary"],
+    ["http://www.keyboard-layout-editor.com","lock","Keylayout","QMK Editor"],
+    ["https://thomasbaart.nl","lock","QMK Basics","Tutorials"],
+    ["https://github.com/qmk/qmk_firmware/blob/master/docs/keycodes.md","lock","QMK Keycodes","hyper(kc)"],
   ],
   "Media":[
-    ["https://hbogo.com/","hb","HBO GO","Westworld"],
-    ["https://www.youtube.com/","yt","Youtube","Daily Tech Fix"],
-    ["https://netflix.com","nt","Netflix","US Proxy"],
-    ["https://www.hulu.com","hu","Hulu","Top Chef !!!"],
-    ["https://soundcloud.com","su","Soundcloud","Mixtape Madness"],
-    ["https://twitch.com","tt","Twitch","Livestream"],
-    ["https://vimeo.com","vo","Vimeo","Video Platform"],
-    ["https://www.fubo.tv/welcome","ad","FuboTv","Futbol"],
+    ["https://hbogo.com/","lock","HBO GO","Westworld"],
+    ["https://www.youtube.com/","youtube-play","Youtube","Daily Tech Fix"],
+    ["https://netflix.com","netflix","Netflix","US Proxy"],
+    ["https://www.hulu.com","lock","Hulu","Top Chef !!!"],
+    ["https://soundcloud.com","soundcloud","Soundcloud","Mixtape Madness"],
+    ["https://twitch.com","twitch","Twitch","Livestream"],
+    ["https://vimeo.com","vimeo","Vimeo","Video Platform"],
+    ["https://www.fubo.tv/welcome","lock","FuboTv","Futbol"],
   ],
   "Code":[
     ["~Github"],
-    ["http://stackoverflow.com","st","Stack Overflow","Java?"],
-    ["https://1password.com","op","1Password","Database"],
-    ["https://icons8.com","ic","Icons8","Icon Set"],
-    ["https://github.com/amix/vimrc","vm","Vimrc","runtime config"],
-    ["https://atom.io","at","Atom.io","IDE"],
-    ["https://internetingishard.com/html-and-css/","go","Interneting is hard","HTML Guide"],
-    ["https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet","md","Markdown","Cheatsheet"],
-    ["https://keycode.info","ct","Keycodes","Javascript"],
+    ["http://stackoverflow.com","stack-overflow","Stack Overflow","Java?"],
+    ["https://1password.com","terminal","1Password","Database"],
+    ["https://icons8.com","terminal","Icons8","Icon Set"],
+    ["https://github.com/amix/vimrc","terminal","Vimrc","runtime config"],
+    ["https://atom.io","terminal","Atom.io","IDE"],
+    ["https://internetingishard.com/html-and-css/","terminal","Interneting is hard","HTML Guide"],
+    ["https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet","terminal","Markdown","Cheatsheet"],
+    ["https://keycode.info","terminal","Keycodes","Javascript"],
   ],
   "Networks":[
-    ["https://twitter.com","~twitter","Twitter","Internet News"],
-    ["https://facebook.com","fa","Facebook","Delete me"],
-    ["https://reddit.com/","re","Reddit","r/unixporn"],
-    ["https://www.instagram.com","im","Instagram","Photos"],
+    ["https://twitter.com","twitter","Twitter","Internet News"],
+    ["https://facebook.com","facebook","Facebook","Delete me"],
+    ["https://reddit.com/","reddit-alien","Reddit","r/unixporn"],
+    ["https://www.instagram.com","instagram","Instagram","Photos"],
     ["~Linkedn"],
-    ["https://discordapp.com","ds","Discord","Chat Channels"],
+    ["https://discordapp.com","users","Discord","Chat Channels"],
   ],
   "News":[
     ["~Weather"], // syntax for referencing functions
-    ["bbc-news","~bbc","BBC","","news"],
-    ["the-new-york-times","~globe","New York Times","","news"],
-    ["reuters","ru","Reuters","","news"],
-    ["ars-technica","ars","Ars Technica","","news"],
-    ["cnn","cnn","CNN","","news"],
-    ["ign","ign","ign","","news"],
-    ["the-verge","ver","The Verge","","news"],
-    ["hacker-news","~hacker_news","Ycombinator","","news"],
-    ["national-geographic","~world_map","Nat Geo","","news"],
-    ["https://newsapi.org","n","News Api","Headlines"],
+    ["bbc-news","newspaper-o","BBC","BBC","news"],
+    ["the-new-york-times","globe","New York Times","New York Times","news"],
+    ["reuters","newspaper-o","Reuters","Reuters","news"],
+    ["ars-technica","newspaper-o","Ars Technica","Ars Technica","news"],
+    ["cnn","newspaper-o","CNN","CNN","news"],
+    ["ign","newspaper-o","ign","ign","news"],
+    ["the-verge","newspaper-o","The Verge","The Verge","news"],
+    ["hacker-news","hacker-news","Ycombinator","Ycombinator","news"],
+    ["national-geographic","map","Nat Geo","Nat Geo","news"],
+    ["https://newsapi.org","newspaper-o","News Api","Headlines"],
   ],
   /*
     Dict of possible live tiles
@@ -121,28 +121,29 @@ var pages = {
     - Get -> `https://api.darksky.net/forecast/f672ff13193bfcc40427a678ebfdbc71/${lat},${long}` + `?format=jsonp&callback=displayWeather`;
   */
   "Search":[
-    ["@d","~dictionary","Word","Definition",term],
-    ["https://www.reddit.com/r/VAR/","re","Reddit","r/VAR",term],
-    ["https://stackoverflow.com/search?q=VAR","st","Stack Overflow","\"VAR\"",term],
-    ["https://en.wikipedia.org/wiki/VAR","wi","Wiki","\"VAR\"",term],
-    ["https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=VAR","tr","Translate","Translate: \"VAR\"",term],
-    ["https://www.rottentomatoes.com/search/?search=VAR","rt","Rotten Tomatoes","\"VAR\"",term],
-    ["https://www.youtube.com/results?search_query=VAR","yt","Youtube","\"VAR\"",term],
-    ["https://www.netflix.com/search?q=VAR","nt","Netflix","\"VAR\"",term],
-    ["https://stardewvalleywiki.com/mediawiki/index.php?search=VAR","sv","Stardew Valley","\"VAR\"",term],
-    ["https://www.wolframalpha.com/input/?i=VAR","wp","Wolfram","\"VAR\"",term],
+    ["@d","book","Word","Definition",term],
+    ["https://www.reddit.com/r/VAR/","reddit-alien","Reddit","r/VAR",term],
+    ["https://stackoverflow.com/search?q=VAR","stack-overflow","Stack Overflow","\"VAR\"",term],
+    ["https://en.wikipedia.org/wiki/VAR","wikipedia-w","Wiki","\"VAR\"",term],
+    ["https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=VAR","language","Translate","Translate: \"VAR\"",term],
+    ["https://www.rottentomatoes.com/search/?search=VAR","search","Rotten Tomatoes","\"VAR\"",term],
+    ["https://www.youtube.com/results?search_query=VAR","youtube-play","Youtube","\"VAR\"",term],
+    ["https://www.netflix.com/search?q=VAR","search","Netflix","\"VAR\"",term],
+    ["https://stardewvalleywiki.com/mediawiki/index.php?search=VAR","search","Stardew Valley","\"VAR\"",term],
+    ["https://www.wolframalpha.com/input/?i=VAR","plus","Wolfram","\"VAR\"",term],
   ],
   "Themes":[ // put tiles for each theme here
-    ["$","ds","Discord","Purple, Black, Grey",['#23272A','#34383B','#2C2F33','#7289DA','#7289DA','#99AAB5']],
-    ["$","sk","Skeletor","Green, Purple, Green",  ["#2b2836","#3c3947","#93b4ff","#bd93f9","#84fba2","#ffffff"]],
-    ["$","tm","Terminal","Green Black",["#282828","#393939","#282828","#33FF33","#33FF33","#33FF33"]],
-    ["$","pnr","Gogh","Blue Green Yellow",["#0375B4","#1486C4","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
-    ["$","td","Todoist","Grey Red Yellow",["#1f1f1f","#2e2e2e","#fccf1b","#cd5650","#ffffff","#ffffff"]],
-    ["$","me","Switch","Grey Red Blue",["#414548","#525659","#ff4554","#00c3e3","#ffffff","#ffffff"]],
-    ["$","lv","Lava","Red Black",["#000000","#111111","#D32F2F","#DD4132","#99AAB5","#99AAB5"]],
-    ["$","tt","Purple","Purple Red Blue",["#6B5B95","#7C6CA6","#FF383F","#223A5E","#F0EDE5","#F0EDE5"]],
-    ["$","bl","Blues","Blue, Grey",["#25274D","#36385E","#2E9CCA","#29648A","#AAABB8","#ffffff"]],
-    ["$","pnr","Starry Night","Blue Green Yellow",["src/wall/starry.jpg","rgba(0,0,0,0.4)","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
+    ["$","desktop","Discord","Purple, Black, Grey",['#23272A','#34383B','#2C2F33','#7289DA','#7289DA','#99AAB5']],
+    ["$","desktop","Skeletor","Green, Purple, Green",  ["#2b2836","#3c3947","#93b4ff","#bd93f9","#84fba2","#ffffff"]],
+    ["$","desktop","Terminal","Green Black",["#282828","#393939","#282828","#33FF33","#33FF33","#33FF33"]],
+    ["$","desktop","Gogh","Blue Green Yellow",["#0375B4","#1486C4","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
+    ["$","desktop","Todoist","Grey Red Yellow",["#1f1f1f","#2e2e2e","#fccf1b","#cd5650","#ffffff","#ffffff"]],
+    ["$","desktop","Switch","Grey Red Blue",["#414548","#525659","#ff4554","#00c3e3","#ffffff","#ffffff"]],
+    ["$","desktop","Lava","Red Black",["#000000","#111111","#D32F2F","#DD4132","#99AAB5","#99AAB5"]],
+    ["$","desktop","Purple","Purple Red Blue",["#6B5B95","#7C6CA6","#FF383F","#223A5E","#F0EDE5","#F0EDE5"]],
+    ["$","desktop","Blues","Blue, Grey",["#25274D","#36385E","#2E9CCA","#29648A","#AAABB8","#ffffff"]],
+    ["$","desktop","Starry Night","Blue Green Yellow",["src/wall/starry.jpg","rgba(0,0,0,0.4)","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
+    ["$","heart-o","Emma Watson","Blue Green Yellow",["src/wall/emma.jpg","rgba(255,255,255,0.6)","#007849","#FECE00","#000000","#000000"]],
   ]
 };
 
@@ -176,7 +177,8 @@ function update_weather(num){
   var url = "http://api.openweathermap.org/data/2.5/weather?zip="+ zip + ",us&appid=" + api;
 
   if (num != undefined){
-    set_tile(num, [url,"50px",images[weather[1]],weather[2],weather[3]]); // placeholder tile
+    // set_tile(num, [url,"50px",images[weather[1]],weather[2],weather[3]]); // placeholder tile
+    set_tile(num, [url,"cloud",weather[2],weather[3]]); // placeholder tile
   };
 
   if (zip != oldzip) {
@@ -206,7 +208,8 @@ function update_weather(num){
       weather = wtile;
       oldzip = zip;
       if (num != undefined){
-        set_tile(num, [url,"50px",images[weather[1]],weather[2],weather[3]]);
+        // set_tile(num, [url,"50px",images[weather[1]],weather[2],weather[3]]);
+        set_tile(num, [url,"cloud",weather[2],weather[3]]);
       };
       console.log("updated weather for " + zip + " - " + wtile);
     }).catch(function(error){
@@ -223,7 +226,8 @@ function dict_tile(num,current){
   var request = new Request(url);
   if (current == last){
     tile = pages["Search"][0];
-    set_tile(num,["@d","50px",images[tile[1]],tile[2],tile[3]]);
+    // set_tile(num,["@d","50px",images[tile[1]],tile[2],tile[3]]);
+    set_tile(num,["@d","book",tile[2],tile[3]]);
     return null;
   };
   last = current;
@@ -247,7 +251,7 @@ function update_news(tile){
   var start = "https://newsapi.org/v2/top-headlines?sources=";
   var api = ""; // need to get an api key to use this feature
   if (api == ""){
-    tile[2] = "No Api Key";
+    tile[3] = "No Api Key";
     console.log("need api key for this");
     return;
   }

@@ -1,5 +1,4 @@
 var focused = 1; // default to first tile
-var images = {}; // dict of image files to preload and reference
 var cached = pages["Home"]; // last visited page
 var tileCount = 12;
 var skipCount = 4;
@@ -7,7 +6,6 @@ var skipCount = 4;
   *************************************************
   Page load functions (in order)
   - generate the tiles
-  - load all images
   - pull theme cookie and apply theme
   - log current theme
   - call themes_dropdown() on all lib.themes to generate dropdown menu based on theme names
@@ -20,7 +18,6 @@ window.onload = function(){
     document.getElementById('grid').appendChild(tile_gen(i));
   }
   update_tiles(); // in lib.js
-  images = image_load(); // Load all images on page
   var tmp = decodeURIComponent(document.cookie).split(';'); /* Loads cookie w/ window and splits list of cookies */
   pages["Back"] = pages["Home"] // default to home
   tmp = tmp[0].split("=")[1]; // splits key/value pair
@@ -30,14 +27,25 @@ window.onload = function(){
   // TODO : fix search bar stealing focus
 };
 
-function tile_gen(index) {
-  var img = document.createElement("img");
-  img.setAttribute("src", "");
-  img.setAttribute("id", "i" + index);
+/*
+  *************************************************
+  Tile Generator
+  - Constructs DOM element for the tile
+  *************************************************
+*/
 
-  var btn = document.createElement("div");
-  btn.setAttribute("class", "button");
-  btn.appendChild(img);
+function tile_gen(index) {
+  // var img = document.createElement("img");
+  // img.setAttribute("src", "");
+  // img.setAttribute("id", "i" + index);
+
+  var icon = document.createElement('i');
+  icon.setAttribute("id", "i" + index);
+  icon.setAttribute("class", "fa fa-3x");
+
+  // var btn = document.createElement("div");
+  // btn.setAttribute("class", "button");
+  // btn.appendChild(icon);
 
   var h3 = document.createElement("h3");
   h3.setAttribute("id", "t" + index);
@@ -49,7 +57,7 @@ function tile_gen(index) {
   anchor.setAttribute("href", "");
   anchor.setAttribute("class", "lBox");
   anchor.setAttribute("id", index);
-  anchor.appendChild(btn);
+  anchor.appendChild(icon);
   anchor.appendChild(h3);
   anchor.appendChild(p);
 
@@ -62,33 +70,6 @@ function tile_gen(index) {
 
 /*
   *************************************************
-  Image Load
-  - loads all images referenced in "lib.js/pages" on page load
-  - allows for much quicker hosting and prevents lag on new pages
-  * only con is potentially long "first" load times *
-  *************************************************
-*/
-function image_load() {
-  image = new Image();
-  for (key in pages) {
-    page = pages[key];
-    for (var i=0; i< page.length; i++) {
-      tile = page[i];
-      if (tile.length >= 2){ // ignores references and weather tiles
-        image = new Image();
-        if (tile[1].includes("~")){
-          image.src = "https://img.icons8.com/color/96/000000/" + tile[1].split("~")[1] + ".png";
-        } else {
-          image.src = "src/" + tile[1] + ".png"
-        }
-        images[tile[1]] = image.src;
-      };
-    };
-  };
-  return images;
-};
-/*
-  *************************************************
   Page Gen
   - Creates new div#grid based off of a given page
 
@@ -98,21 +79,21 @@ function image_load() {
   - '#...' in tile[0] denotes a page with name '...'
   *************************************************
 */
-function set_tile(num,array) {
+function set_tile(num, array) {
   n = num.toString();
   document.getElementById(num).href = array[0];
-  document.getElementById("i"+n).style.width = array[1];
-  document.getElementById("i"+n).src = array[2];
-  document.getElementById("t"+n).innerHTML = array[3];
-  document.getElementById("s"+n).innerHTML = array[4];
+  document.getElementById("i"+n).className = "fa fa-3x fa-" + array[1];
+  document.getElementById("t"+n).innerHTML = array[2];
+  document.getElementById("s"+n).innerHTML = array[3];
 };
 
 function page_gen(id, page) { // id for focus element
   var array = [];
   if (page == undefined) { // page_gen() -> defaults to pages["Home"]
     page = pages["Home"];
-  } else if (page[0][2] != "Back" && page[0][1] != "ba" && page != pages["Home"]) { // checks for custom back tile -> ignores if one exists
-    page.unshift(["#Home","ba","Back","To the Future?","*"]);
+  }
+  else if (page[0][2] != "Back" && page[0][1] != "ba" && page != pages["Home"]) { // checks for custom back tile -> ignores if one exists
+    page.unshift(["#Home","chevron-left","Back","To the Future?","*"]);
   };
   cached = page;
   if (page.length > 12) {
@@ -128,13 +109,13 @@ function page_gen(id, page) { // id for focus element
       - i denotes level of depth
     */
     next = Array.from(page); // de references array
-    page.splice(11, 11, ["#","ab","Next",String(page.length - 11) + " More Results","*"]); // stores results 12+
+    page.splice(11, 11, ["#","chevron-right","Next",String(page.length - 11) + " More Results","*"]); // stores results 12+
     next.splice(0,11,["#","ba","Back","Previous Results","*"]); // stores current page (for back button)
     pages["Next"] = next; // stores temporary back page
     pages["Back"] = page; // stores temp next page
   };
   try {
-    for (var num =1; num<13;num++) {
+    for (var num =1; num<=tileCount; num++) {
         tile = page[num-1];
         if (tile == undefined) { // less than 12 tiles
           tile = ["","","",""] // placeholder blank tile
@@ -144,30 +125,30 @@ function page_gen(id, page) { // id for focus element
         url = tile[0];
         if (url == "@w"){ // weather function tile
           update_weather(num);
-        } else if (url == "@f"){
-          set_tile(num,liverpool);
-        } else if (url == "@d"){
+        }
+        else if (url == "@f"){
+          set_tile(num, liverpool);
+        }
+        else if (url == "@d"){
           dict_tile(num,document.getElementById("search").value.replace(term,"").replace(" ",""));
-        } else {
+        }
+        else {
           if (tile[2] == "Home" || tile[0] == "#Home") { // still supports custom back button
             array[0] = "javascript:page_gen(1, pages[\"Home\"]);";
             //array[0] = "javascript:page_gen(1); javascript:document.title=\"Home\"";
-          } else if (url[0] == "#") { // checks for folder urls
+          }
+          else if (url[0] == "#") { // checks for folder urls
             array[0] = "javascript:page_gen(2,pages[\""+tile[2]+"\"])"; // Opens folder and sets cursor to 2
-          } else if (url[0] == "$") { // if theme
+          }
+          else if (url[0] == "$") { // if theme
             array[0] = "javascript:set_theme(\""+tile[2]+"\",2); javascript:page_gen(1)";
-          } else { // for normal url redirects
+          }
+          else { // for normal url redirects
             array[0] = url.replace("VAR",encodeURIComponent(document.getElementById("search").value.replace(term,""))); // searches only with correct symbols
           };
-          if (tile[1] == ""){ // Blank images have no outline box
-            array[1] = 0;
-            array[2] = "";
-          } else {
-            array[1] = "50px";
-            array[2] = images[tile[1]]; // assumes all images have been preloaded
-          };
-          array[3] = tile[2]; // Title
-          array[4] = tile[3].replace("VAR",document.getElementById("search").value).replace(term,"");
+          array[1] = tile[1]; // Icon
+          array[2] = tile[2]; // Title
+          array[3] = tile[3].replace("VAR",document.getElementById("search").value).replace(term,"");
           set_tile(num,array);
         };
       };
@@ -242,9 +223,11 @@ function search_live(curr) {
       zip = document.getElementById("search").value;
       final.push({'match': tile,"rank":100}); // puts weather tile first
       break; // only tile
-    } else if (tile[4] == term && curr.includes(term)) { // if term -> only show external search tiles
+    }
+    else if (tile[4] == term && curr.includes(term)) { // if term -> only show external search tiles
       final.push({'match': tile,"rank":10});
-    } else if (tile[4] != "*" && !curr.includes(term) && tile[4] != term) { // "*" -> Hidden from search term -> ignore search tiles outside of search mode
+    }
+    else if (tile[4] != "*" && !curr.includes(term) && tile[4] != term) { // "*" -> Hidden from search term -> ignore search tiles outside of search mode
       value = Math.max(rank(tile[2],curr),rank(tile[4],curr)); // max ranking of name and tag
       if (value > 1.5) {
         if (tile[0].includes("VAR")) {
@@ -263,11 +246,11 @@ function search_live(curr) {
   final = final.sort(function(a, b) {   // Sorting of all results (tiles, folders and livetiles)
     return ((a.rank > b.rank) ? -1 : ((a.rank == b.rank) ? 0 : 1));});
   var ranking = [];
-  ranking.push(["#Home","ba", "Back","Exit Search","*"]); // Preappend back button
+  ranking.push(["#Home","chevron-left", "Back","Exit Search","*"]); // Preappend back button
   for (var k = 0; k < Math.min(final.length,20); k++) { // add all matches in ranked order (max of two pages)
     ranking[k+1] = final[k].match;
   };
-  ranking[k+1] = ["https://www.google.com/search?q=" + curr.replace(term,""),"go","Google","\""+ curr.replace(term,"") +"\"","*"]; // always add google tile last regardless of search mode
+  ranking[k+1] = ["https://www.google.com/search?q=" + curr.replace(term,""),"google","Google","\""+ curr.replace(term,"") +"\"","*"]; // always add google tile last regardless of search mode
   page_gen("none",Array.from(ranking));
   return ranking;
 };

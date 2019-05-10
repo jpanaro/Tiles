@@ -72,6 +72,7 @@ footer {
 .tile {
 	width: 600px; /* default for mobile screens */
 	height: 175px;
+	margin: 2px;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -125,22 +126,20 @@ footer {
 	background-color: var(--hover-bg);
 }
 
-#grid a .button {
+i {
 	float: left;
 	margin-top: 12px;
 	margin-right: 24px;
+	vertical-align: middle;
+	transition: 100ms all ease-in;
 }
 
 #grid p {
   color: var(--sub-txt);
 }
 
-#grid a img {
-	transition: 250ms all ease-in;
-}
-
-#grid a:focus img,
-#grid a:hover img {
+#grid a:focus i,
+#grid a:hover i {
 	transform: scale(1.5);
 }
 
