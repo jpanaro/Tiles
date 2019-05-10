@@ -48,7 +48,7 @@ header {
 footer {
 	position: fixed;
 	bottom: 0;
-	padding: 12px 48px;
+	padding: 0 72px 48px 72px;
 }
 
 #time {
@@ -148,18 +148,16 @@ input[type="text"] {
 	color: var(--sub-txt);
 	outline: none;
 	border: none;
-	border-bottom: 4px solid var(--hover-bg);
+	border-bottom: 4px solid var(--sub-txt);
 	font-size: 52px;
 	box-sizing: border-box;
-	padding: 8px 0;
+	padding: 8px 16px;
 	z-index: 1;
-	width: 0;
-	transition: width 300ms ease-out, color 400ms, border-bottom 1s;
+	width: 100%;
+	transition: color 400ms, border-bottom 1s;
 }
 
 input[type="text"]:focus {
-	width: 100%;
-	padding: 8px 16px;
 	border-bottom: 4px solid var(--base-txt);
 	color: var(--base-txt);
 	outline: none;
