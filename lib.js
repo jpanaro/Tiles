@@ -46,7 +46,7 @@ var pages = {
     ["#","mt","Code","~/hack.sh"],
   ],
   "Home":[ // Index page loads at and resets to on end of search or 'esc'
-    ["https://github.com/Boettner-eric/Tiles","ba","Back","To Github","*"],
+    ["https://github.com/kishlaya/Tiles","ba","Back","To Github","*"],
     ["~Github"], // example of reference
     ["https://gmail.com","gm","Gmail","Inboxes","google"],
     ["https://todoist.com/app#start","td","Todoist","Tasks"],
@@ -133,16 +133,16 @@ var pages = {
     ["https://www.wolframalpha.com/input/?i=VAR","wp","Wolfram","\"VAR\"",term],
   ],
   "Themes":[ // put tiles for each theme here
-    ["$","ds","Discord","Purple, Black, Grey",['#23272A','#2C2F33','#7289DA','#7289DA','#99AAB5']],
-    ["$","sk","Skeletor","Green, Purple, Green",  ["#2b2836","#93b4ff","#bd93f9","#84fba2","#ffffff"]],
-    ["$","tm","Terminal","Green Black",["#282828","#282828","#33FF33","#33FF33","#33FF33"]],
-    ["$","pnr","Gogh","Blue Green Yellow",["#0375B4","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
-    ["$","td","Todoist","Grey Red Yellow",["#1f1f1f","#fccf1b","#cd5650","#ffffff","#ffffff"]],
-    ["$","me","Switch","Grey Red Blue",["#414548","#ff4554","#00c3e3","#ffffff","#ffffff"]],
-    ["$","lv","Lava","Red Black",["#000000","#D32F2F","#DD4132","#99AAB5","#99AAB5"]],
-    ["$","tt","Purple","Purple Red Blue",["#6B5B95","#FF383F","#223A5E","#F0EDE5","#F0EDE5"]],
-    ["$","bl","Blues","Blue, Grey",["#25274D","#2E9CCA","#29648A","#AAABB8","#ffffff"]],
-    ["$","pnr","Starry Night","Blue Green Yellow",["src/wall/starry.jpg","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
+    ["$","ds","Discord","Purple, Black, Grey",['#23272A','#34383B','#2C2F33','#7289DA','#7289DA','#99AAB5']],
+    ["$","sk","Skeletor","Green, Purple, Green",  ["#2b2836","#3c3947","#93b4ff","#bd93f9","#84fba2","#ffffff"]],
+    ["$","tm","Terminal","Green Black",["#282828","#393939","#282828","#33FF33","#33FF33","#33FF33"]],
+    ["$","pnr","Gogh","Blue Green Yellow",["#0375B4","#1486C4","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
+    ["$","td","Todoist","Grey Red Yellow",["#1f1f1f","#2e2e2e","#fccf1b","#cd5650","#ffffff","#ffffff"]],
+    ["$","me","Switch","Grey Red Blue",["#414548","#525659","#ff4554","#00c3e3","#ffffff","#ffffff"]],
+    ["$","lv","Lava","Red Black",["#000000","#111111","#D32F2F","#DD4132","#99AAB5","#99AAB5"]],
+    ["$","tt","Purple","Purple Red Blue",["#6B5B95","#7C6CA6","#FF383F","#223A5E","#F0EDE5","#F0EDE5"]],
+    ["$","bl","Blues","Blue, Grey",["#25274D","#36385E","#2E9CCA","#29648A","#AAABB8","#ffffff"]],
+    ["$","pnr","Starry Night","Blue Green Yellow",["src/wall/starry.jpg","rgba(0,0,0,0.4)","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
   ]
 };
 
