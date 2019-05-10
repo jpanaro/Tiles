@@ -21,7 +21,7 @@ a, a:hover, a:focus, a:active, a:visited {
 
 body, html {
   background-color: var(--background) !important;
-	background-position: center;
+	background-position: unset;
 	background-repeat: no-repeat;
 	background-size: cover;
 	-webkit-user-select: none;
@@ -38,7 +38,6 @@ footer {
 	height: 100px;
 	box-sizing: border-box;
 	margin: 0;
-	background-color: inherit;
 }
 
 header {
@@ -146,7 +145,7 @@ footer {
 }
 
 input[type="text"] {
-	background-color: var(--background);
+	background-color: transparent;
 	color: var(--sub-txt);
 	outline: none;
 	border: none;
