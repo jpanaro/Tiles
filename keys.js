@@ -110,9 +110,10 @@ function page_gen(id, page) { // id for focus element
   if (page == undefined) { // page_gen() -> defaults to pages["Home"]
     page = pages["Home"];
   }
-  else if (page != pages["Home"]) {
+
+  if (page != pages["Home"]) {
     // Add a 'back to home' tile
-    page = [["#Home","chevron-left","Back","To the Future","*"]].concat(page);
+    page = [["javascript:page_gen(1, pages[\"Home\"]);","chevron-left","Back","To the Future","*"]].concat(page);
   }
 
   cached = page;
@@ -155,10 +156,7 @@ function page_gen(id, page) { // id for focus element
           dict_tile(num,document.getElementById("search").value.replace(term,"").replace(" ",""));
         }
         else {
-          if (tile[2] == "Home" || tile[0] == "#Home") { // still supports custom back button
-            tile[0] = "javascript:page_gen(1, pages[\"Home\"]);";
-          }
-          else if (url[0] == "#") { // checks for folder urls
+          if (url[0] == "#") { // checks for folder urls
             tile[0] = "javascript:page_gen(2,pages[\""+tile[2]+"\"])"; // Opens folder and sets cursor to 2
           }
           else if (url[0] == "$") { // if theme
