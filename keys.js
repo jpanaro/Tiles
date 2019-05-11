@@ -18,7 +18,11 @@ window.onload = function(){
   for(var i=1; i<=tileCount; i++) {
     document.getElementById('grid').appendChild(tile_gen(i));
   }
+
+  reset_tile_count();
   update_tiles(); // in lib.js
+  update_skip_count();
+
   var tmp = decodeURIComponent(document.cookie).split(';'); /* Loads cookie w/ window and splits list of cookies */
   pages["Back"] = pages["Home"] // default to home
   tmp = tmp[0].split("=")[1]; // splits key/value pair
