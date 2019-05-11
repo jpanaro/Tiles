@@ -186,7 +186,8 @@ function page_gen(id, page) { // id for focus element
   for (var i =1; i<=tileCount;i++){
     if (document.getElementById(i) != null && document.getElementById(i).href.includes("javascript:")){
       document.getElementById(i).onclick = function(){
-        eval(document.getElementById(i).href.replace("javascript:",""));
+        eval(this.href.replace("javascript:",""));
+        return false;
       };
     };
   };
