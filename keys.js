@@ -269,11 +269,10 @@ function search_live(curr) {
   final = final.sort(function(a, b) {   // Sorting of all results (tiles, folders and livetiles)
     return ((a.rank > b.rank) ? -1 : ((a.rank == b.rank) ? 0 : 1));});
   var ranking = [];
-  ranking.push(["#Home","chevron-left", "Back","Exit Search","*"]); // Preappend back button
   for (var k = 0; k < Math.min(final.length,20); k++) { // add all matches in ranked order (max of two pages)
-    ranking[k+1] = final[k].match;
+    ranking[k] = final[k].match;
   };
-  ranking[k+1] = ["https://www.google.com/search?q=" + curr.replace(term,""),"google","Google","\""+ curr.replace(term,"") +"\"","*"]; // always add google tile last regardless of search mode
+  ranking[k] = ["https://www.google.com/search?q=" + curr.replace(term,""),"google","Google","\""+ curr.replace(term,"") +"\"","*"]; // always add google tile last regardless of search mode
   page_gen("none",Array.from(ranking));
   return ranking;
 };
