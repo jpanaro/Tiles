@@ -133,10 +133,10 @@ var pages = {
     ["https://www.wolframalpha.com/input/?i=VAR","plus","Wolfram","\"VAR\"",term],
   ],
   "Themes":[ // put tiles for each theme here
+    ["$","desktop","Gogh","Blue Green Yellow",["#0F8AA6","#0E7995","#6BE8AE","#F5D45B","#","#"]],
     ["$","desktop","Discord","Black Purple Grey",['#23272A','#34383B','#7289DA','#99AAB5','#','#']],
     ["$","desktop","Skeletor","Green Purple Green",  ["#588C5E","#477B4D","#802640","#A3CC99","#","#"]],
     ["$","desktop","Terminal","Black Green",["#282828","#393939","#33FF33","#33FF33","#","#"]],
-    ["$","desktop","Gogh","Blue Green Yellow",["#0F8AA6","#0E7995","#6BE8AE","#F5D45B","#","#"]],
     ["$","desktop","Todoist","Grey Yellow Red",["#1f1f1f","#2e2e2e","#fccf1b","#cd5650","#","#"]],
     ["$","desktop","Switch","Grey Red Blue",["#414548","#525659","#ff4554","#00c3e3","#","#"]],
     ["$","desktop","Lava","Black Red Orange",["#000000","#111111","#DD4132","#FF9D00","#","#"]],

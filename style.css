@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 :root {
-	--background: #23272A;
-	--hover-bg: #34383B;
-	--base-txt: #99AAB5;
-  --sub-txt: #7289DA;
+	--background: #0F8AA6;
+	--hover-bg: #0E7995;
+	--base-txt: #6BE8AE;
+  --sub-txt: #F5D45B;
 }
 ::-webkit-input-placeholder {
     opacity: 1 !important;
