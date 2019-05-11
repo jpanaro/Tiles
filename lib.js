@@ -37,30 +37,32 @@ var pages = {
     // links
     ["https://www.linkedin.com","linkedin","Linkedn","Professional"],
     ["https://github.com","github","Github","Repos"],
+    ["https://reddit.com/r/unixporn","reddit-alien","Reddit","r/unixporn"],
+    ["https://www.youtube.com/","youtube-play","Youtube","Daily Tech Fix"],
     // folders
-    ["#","desktop","Themes","Colors"],
-    ["#","newspaper-o","News","Headlines"],
-    ["#","keyboard-o","Keyboards","Ctrl Alt Del"],
-    ["#","music","Media","Stream"],
-    ["#","twitter","Networks","Social Media"],
-    ["#","code","Code","~/hack.sh"],
+    ["#","folder-open","Themes","Colors"],
+    ["#","wrench","Settings","Colors"],
+    ["#","folder-open","News","Headlines"],
+    ["#","folder-open","Keyboards","Ctrl Alt Del"],
+    ["#","folder-open","Media","Stream"],
+    ["#","folder-open","Networks","Social Media"],
+    ["#","folder-open","Code","~/hack.sh"],
   ],
   "Home":[ // Index page loads at and resets to on end of search or 'esc'
-    ["https://github.com/kishlaya/Tiles","chevron-left","Back","To Github","*"],
+    ["javascript:window.history.back();","chevron-left","Back","To the Future","*"],
     ["~Github"], // example of reference
-    ["https://gmail.com","envelope-o","Gmail","Inboxes","google"],
-    ["https://todoist.com/app#start","list","Todoist","Tasks"],
-    ["https://pcpartpicker.com","laptop","PcParts","Pcpartpicker"],
-    ["~News"],
-    ["~Media"],
+    ["https://gmail.com","envelope-o","Gmail","Mails","google"],
+    ["https://keep.google.com","list","Keep","Tasks"],
+    ["~Reddit"],
+    ["~Youtube"],
     ["~Networks"],
     ["~Code"],
+    ["~Media"],
+    ["~News"],
     ["~Keyboards"],
-    ["https://icons8.com","lock","Icons8","Icon Set"],
-    ["~Themes"],
+    ["~Settings"],
   ],
   "Keyboards":[
-    ["#Home","esc","Back","Endgame Achieved?","*"],
     ["https://www.massdrop.com/mechanical-keyboards","lock","Massdrop","GBs"],
     ["https://www.reddit.com/r/MechanicalKeyboards/","lock","r/MK","Reddit"],
     ["https://mitormk.com","lock","MitoMK","Laser SA"],
@@ -74,32 +76,33 @@ var pages = {
     ["https://github.com/qmk/qmk_firmware/blob/master/docs/keycodes.md","lock","QMK Keycodes","hyper(kc)"],
   ],
   "Media":[
-    ["https://hbogo.com/","lock","HBO GO","Westworld"],
-    ["https://www.youtube.com/","youtube-play","Youtube","Daily Tech Fix"],
-    ["https://netflix.com","netflix","Netflix","US Proxy"],
-    ["https://www.hulu.com","lock","Hulu","Top Chef !!!"],
+    ["~Youtube"],
+    ["https://hbogo.com/","play","HBO GO","Westworld"],
+    ["https://netflix.com","play-circle","Netflix","US Proxy"],
+    ["https://www.hulu.com","play","Hulu","Top Chef !!!"],
     ["https://soundcloud.com","soundcloud","Soundcloud","Mixtape Madness"],
     ["https://twitch.com","twitch","Twitch","Livestream"],
     ["https://vimeo.com","vimeo","Vimeo","Video Platform"],
-    ["https://www.fubo.tv/welcome","lock","FuboTv","Futbol"],
+    ["https://www.fubo.tv/welcome","play","FuboTv","Futbol"],
   ],
   "Code":[
     ["~Github"],
     ["http://stackoverflow.com","stack-overflow","Stack Overflow","Java?"],
     ["https://1password.com","terminal","1Password","Database"],
-    ["https://icons8.com","terminal","Icons8","Icon Set"],
+    ["https://fontawesome.com/icons/","fonticons","Font Awesome 4","Icon Set"],
     ["https://github.com/amix/vimrc","terminal","Vimrc","runtime config"],
     ["https://atom.io","terminal","Atom.io","IDE"],
-    ["https://internetingishard.com/html-and-css/","terminal","Interneting is hard","HTML Guide"],
+    ["https://internetingishard.com/html-and-css/","internet-explorer","Interneting is hard","HTML Guide"],
     ["https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet","terminal","Markdown","Cheatsheet"],
     ["https://keycode.info","terminal","Keycodes","Javascript"],
   ],
   "Networks":[
-    ["https://twitter.com","twitter","Twitter","Internet News"],
+    ["https://www.web.whatsapp.com","whatsapp","Whatsapp","Messenger"],
     ["https://facebook.com","facebook","Facebook","Delete me"],
-    ["https://reddit.com/","reddit-alien","Reddit","r/unixporn"],
     ["https://www.instagram.com","instagram","Instagram","Photos"],
+    ["~Reddit"],
     ["~Linkedn"],
+    ["https://twitter.com","twitter","Twitter","Internet News"],
     ["https://discordapp.com","users","Discord","Chat Channels"],
   ],
   "News":[
@@ -129,7 +132,7 @@ var pages = {
     ["https://www.rottentomatoes.com/search/?search=VAR","search","Rotten Tomatoes","\"VAR\"",term],
     ["https://www.youtube.com/results?search_query=VAR","youtube-play","Youtube","\"VAR\"",term],
     ["https://www.netflix.com/search?q=VAR","search","Netflix","\"VAR\"",term],
-    ["https://stardewvalleywiki.com/mediawiki/index.php?search=VAR","search","Stardew Valley","\"VAR\"",term],
+    ["https://duckduckgo.com/?q=VAR","search","DuckDuckGo","\"VAR\"",term],
     ["https://www.wolframalpha.com/input/?i=VAR","plus","Wolfram","\"VAR\"",term],
   ],
   "Themes":[ // put tiles for each theme here
@@ -144,6 +147,9 @@ var pages = {
     ["$","desktop","Blues","Blue Grey",["#32598C","#21487B","#B0C1D9","#7B92A6"]],
     ["$","desktop","Starry Night","Blue Green Yellow",["src/wall/starry.jpg","rgba(0,0,0,0.4)","#FFFFFF","#FFFFFF"]],
     ["$","heart-o","Emma Watson","White Black",["src/wall/emma.jpg","rgba(0,0,0,0.4)","#000000","#000000"]],
+  ],
+  "Settings": [
+    ["~Themes"]
   ]
 };
 
@@ -240,9 +246,11 @@ function dict_tile(num,current){
       tile[2] = json[0].word;
       tile[3] = json[0].defs[0];
     };
-    set_tile(num,["@d","50px",images[tile[1]],tile[2],tile[3]]);
+    set_tile(num,["@d","book",tile[2],tile[3]]);
+    // set_tile(num,["@d","50px",images[tile[1]],tile[2],tile[3]]);
   }).catch(function(error){
-    set_tile(num,["@d","50px",images["~dictionary"],"Word","Definition"]);
+    set_tile(num,["@d","book",tile[2],tile[3]]);
+    // set_tile(num,["@d","50px",images["~dictionary"],"Word","Definition"]);
   });
 }
 
