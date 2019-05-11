@@ -97,7 +97,7 @@ var pages = {
     ["https://keycode.info","terminal","Keycodes","Javascript"],
   ],
   "Networks":[
-    ["https://www.web.whatsapp.com","whatsapp","Whatsapp","Messenger"],
+    ["https://web.whatsapp.com","whatsapp","Whatsapp","Messenger"],
     ["https://facebook.com","facebook","Facebook","Delete me"],
     ["https://www.instagram.com","instagram","Instagram","Photos"],
     ["~Reddit"],
