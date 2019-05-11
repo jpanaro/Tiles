@@ -2,6 +2,7 @@ var focused = 1; // default to first tile
 var cached = pages["Home"]; // last visited page
 var tileCount = 12;
 var skipCount = 4;
+var disabledTiles = 0;
 /*
   *************************************************
   Page load functions (in order)
@@ -25,6 +26,10 @@ window.onload = function(){
   console.log("\"" + tmp + "\" theme loaded on page load");
   page_gen(1);  // defaults to pages["Home"]
   // TODO : fix search bar stealing focus
+};
+
+window.onresize = function() {
+  update_skip_count();
 };
 
 /*
@@ -54,7 +59,7 @@ function tile_gen(index) {
   p.setAttribute("id", "s" + index);
 
   var anchor = document.createElement("a");
-  anchor.setAttribute("href", "");
+  anchor.setAttribute("href", "#");
   anchor.setAttribute("class", "lBox");
   anchor.setAttribute("id", index);
   anchor.appendChild(icon);
@@ -85,10 +90,21 @@ function set_tile(num, array) {
   document.getElementById("i"+n).className = "fa fa-3x fa-" + array[1];
   document.getElementById("t"+n).innerHTML = array[2];
   document.getElementById("s"+n).innerHTML = array[3];
+
+  if (array[2] == "") {
+    document.getElementById(num).classList.add("disabled");
+    disabledTiles += 1;
+  }
+  else {
+    document.getElementById(num).classList.remove("disabled");
+  }
 };
 
 function page_gen(id, page) { // id for focus element
   var array = [];
+
+  reset_tile_count();
+
   if (page == undefined) { // page_gen() -> defaults to pages["Home"]
     page = pages["Home"];
   }
@@ -160,6 +176,9 @@ function page_gen(id, page) { // id for focus element
     focused=id;
     result=id;
   };
+
+  tileCount = tileCount - disabledTiles; // Every page has a separate number of tiles
+
   for (var i =1; i<=tileCount;i++){
     if (document.getElementById(i) != null && document.getElementById(i).href.includes("javascript:")){
       document.getElementById(i).onclick = function(){
@@ -432,11 +451,16 @@ document.onkeydown = function(e) {
 	};
 };
 
-window.onresize = function() {
+function reset_tile_count() {
+  disabledTiles = 0;
+  tileCount = 12;
+}
+
+function update_skip_count() {
   // skipCount update
   var gridWidth = document.getElementById('grid').offsetWidth;
   gridWidth = parseInt(gridWidth);
   var tileWidth = document.getElementsByClassName('tile')[0].offsetWidth;
   tileWidth = parseInt(tileWidth);
   skipCount = Math.floor(gridWidth/tileWidth);
-};
+}

@@ -124,6 +124,14 @@ footer {
 	background-color: var(--hover-bg);
 }
 
+#grid a.disabled,
+#grid a.disabled:focus,
+#grid a.disabled:hover {
+	background-color: var(--background);
+	pointer-events: none;
+	cursor: default;
+}
+
 #grid i {
 	float: left;
 	margin-top: 12px;
