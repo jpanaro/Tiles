@@ -105,16 +105,16 @@ function set_tile(num, array) {
 };
 
 function page_gen(id, page) { // id for focus element
-  var array = [];
-
   reset_tile_count();
 
   if (page == undefined) { // page_gen() -> defaults to pages["Home"]
     page = pages["Home"];
   }
-  else if (page[0][2] != "Back" && page[0][1] != "ba" && page != pages["Home"]) { // checks for custom back tile -> ignores if one exists
-    page.unshift(["#Home","chevron-left","Back","To the Future?","*"]);
-  };
+  else if (page != pages["Home"]) {
+    // Add a 'back to home' tile
+    page = [["#Home","chevron-left","Back","To the Future","*"]].concat(page);
+  }
+
   cached = page;
   if (page.length > 12) {
     /*
@@ -137,39 +137,38 @@ function page_gen(id, page) { // id for focus element
   try {
     for (var num =1; num<=tileCount; num++) {
         tile = page[num-1];
+
         if (tile == undefined) { // less than 12 tiles
-          tile = ["","","",""] // placeholder blank tile
-        };
+          tile = blank_tile(); // placeholder blank tile
+        }
+        else {
+          tile = reference(tile); // see reference() below
+        }
+
         n = num.toString();
-        tile = reference(tile); // see reference() below
         url = tile[0];
+
         if (url == "@w"){ // weather function tile
           update_weather(num);
-        }
-        else if (url == "@f"){
-          set_tile(num, liverpool);
         }
         else if (url == "@d"){
           dict_tile(num,document.getElementById("search").value.replace(term,"").replace(" ",""));
         }
         else {
           if (tile[2] == "Home" || tile[0] == "#Home") { // still supports custom back button
-            array[0] = "javascript:page_gen(1, pages[\"Home\"]);";
-            //array[0] = "javascript:page_gen(1); javascript:document.title=\"Home\"";
+            tile[0] = "javascript:page_gen(1, pages[\"Home\"]);";
           }
           else if (url[0] == "#") { // checks for folder urls
-            array[0] = "javascript:page_gen(2,pages[\""+tile[2]+"\"])"; // Opens folder and sets cursor to 2
+            tile[0] = "javascript:page_gen(2,pages[\""+tile[2]+"\"])"; // Opens folder and sets cursor to 2
           }
           else if (url[0] == "$") { // if theme
-            array[0] = "javascript:set_theme(\""+tile[2]+"\",2); javascript:page_gen(1)";
+            tile[0] = "javascript:set_theme(\""+tile[2]+"\",2); javascript:page_gen(1)";
           }
           else { // for normal url redirects
-            array[0] = url.replace("VAR",encodeURIComponent(document.getElementById("search").value.replace(term,""))); // searches only with correct symbols
-          };
-          array[1] = tile[1]; // Icon
-          array[2] = tile[2]; // Title
-          array[3] = tile[3].replace("VAR",document.getElementById("search").value).replace(term,"");
-          set_tile(num,array);
+            tile[0] = url.replace("VAR",encodeURIComponent(document.getElementById("search").value.replace(term,""))); // searches only with correct symbols
+          }
+          tile[3] = tile[3].replace("VAR",document.getElementById("search").value).replace(term,"");
+          set_tile(num, tile);
         };
       };
   } catch (err) {
@@ -455,6 +454,10 @@ document.onkeydown = function(e) {
     };
 	};
 };
+
+function blank_tile() {
+  return ["","","",""];
+}
 
 function reset_tile_count() {
   disabledTiles = 0;
