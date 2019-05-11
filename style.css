@@ -4,8 +4,6 @@
 	--hover-bg: #34383B;
 	--base-txt: #99AAB5;
   --sub-txt: #7289DA;
-  --main-cl: #7289DA;
-  --comp-cl: #99AAB5;
 }
 ::-webkit-input-placeholder {
     opacity: 1 !important;
@@ -126,21 +124,26 @@ footer {
 	background-color: var(--hover-bg);
 }
 
-i {
+#grid i {
 	float: left;
 	margin-top: 12px;
 	margin-right: 24px;
 	vertical-align: middle;
-	transition: 100ms all ease-in;
-}
-
-#grid p {
-  color: var(--sub-txt);
+	transition: color 500ms, transform 100ms ease-in;
 }
 
 #grid a:focus i,
 #grid a:hover i {
 	transform: scale(1.5);
+}
+
+#grid h3 {
+	transition: color 500ms;
+}
+
+#grid p {
+  color: var(--sub-txt);
+	transition: color 500ms;
 }
 
 input[type="text"] {

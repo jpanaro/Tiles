@@ -133,17 +133,17 @@ var pages = {
     ["https://www.wolframalpha.com/input/?i=VAR","plus","Wolfram","\"VAR\"",term],
   ],
   "Themes":[ // put tiles for each theme here
-    ["$","desktop","Discord","Purple, Black, Grey",['#23272A','#34383B','#2C2F33','#7289DA','#7289DA','#99AAB5']],
-    ["$","desktop","Skeletor","Green, Purple, Green",  ["#2b2836","#3c3947","#93b4ff","#bd93f9","#84fba2","#ffffff"]],
-    ["$","desktop","Terminal","Green Black",["#282828","#393939","#282828","#33FF33","#33FF33","#33FF33"]],
-    ["$","desktop","Gogh","Blue Green Yellow",["#0375B4","#1486C4","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
-    ["$","desktop","Todoist","Grey Red Yellow",["#1f1f1f","#2e2e2e","#fccf1b","#cd5650","#ffffff","#ffffff"]],
-    ["$","desktop","Switch","Grey Red Blue",["#414548","#525659","#ff4554","#00c3e3","#ffffff","#ffffff"]],
-    ["$","desktop","Lava","Red Black",["#000000","#111111","#D32F2F","#DD4132","#99AAB5","#99AAB5"]],
-    ["$","desktop","Purple","Purple Red Blue",["#6B5B95","#7C6CA6","#FF383F","#223A5E","#F0EDE5","#F0EDE5"]],
-    ["$","desktop","Blues","Blue, Grey",["#25274D","#36385E","#2E9CCA","#29648A","#AAABB8","#ffffff"]],
-    ["$","desktop","Starry Night","Blue Green Yellow",["src/wall/starry.jpg","rgba(0,0,0,0.4)","#007849","#FECE00","#FFFFFF","#FFFFFF"]],
-    ["$","heart-o","Emma Watson","Blue Green Yellow",["src/wall/emma.jpg","rgba(255,255,255,0.6)","#007849","#FECE00","#000000","#000000"]],
+    ["$","desktop","Discord","Black Purple Grey",['#23272A','#34383B','#7289DA','#99AAB5','#','#']],
+    ["$","desktop","Skeletor","Green Purple Green",  ["#588C5E","#477B4D","#802640","#A3CC99","#","#"]],
+    ["$","desktop","Terminal","Black Green",["#282828","#393939","#33FF33","#33FF33","#","#"]],
+    ["$","desktop","Gogh","Blue Green Yellow",["#0F8AA6","#0E7995","#6BE8AE","#F5D45B","#","#"]],
+    ["$","desktop","Todoist","Grey Yellow Red",["#1f1f1f","#2e2e2e","#fccf1b","#cd5650","#","#"]],
+    ["$","desktop","Switch","Grey Red Blue",["#414548","#525659","#ff4554","#00c3e3","#","#"]],
+    ["$","desktop","Lava","Black Red Orange",["#000000","#111111","#DD4132","#FF9D00","#","#"]],
+    ["$","desktop","Purple","Purple Red Blue",["#635D9D","#524C8C","#FE5858","#63CAB9","#","#"]],
+    ["$","desktop","Blues","Blue Grey",["#32598C","#21487B","#B0C1D9","#7B92A6","#","#"]],
+    ["$","desktop","Starry Night","Blue Green Yellow",["src/wall/starry.jpg","rgba(0,0,0,0.4)","#FFFFFF","#FFFFFF","#","#"]],
+    ["$","heart-o","Emma Watson","White Black",["src/wall/emma.jpg","rgba(0,0,0,0.4)","#000000","#000000","#","#"]],
   ]
 };
 

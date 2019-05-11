@@ -298,10 +298,8 @@ function set_theme(name) { // 4
         document.documentElement.style.setProperty('--background', x[0]);
       };
       document.documentElement.style.setProperty('--hover-bg', x[1]);
-      document.documentElement.style.setProperty('--main-cl', x[2]);
-      document.documentElement.style.setProperty('--comp-cl', x[3]);
-      document.documentElement.style.setProperty('--sub-txt', x[4]);
-      document.documentElement.style.setProperty('--base-txt', x[5]);
+      document.documentElement.style.setProperty('--base-txt', x[2]);
+      document.documentElement.style.setProperty('--sub-txt', x[3]);
       set_cookie(name);
       return 0;
     };
