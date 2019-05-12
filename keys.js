@@ -362,7 +362,6 @@ document.onkeydown = function(e) {
 		if (key == 27) { // esc
       document.getElementById("search").value = "";
       page_gen(1);
-      document.title = "Home";
 		} else if (key == 13){ // enter
       document.activeElement.blur();
 			document.getElementById("2").focus();
