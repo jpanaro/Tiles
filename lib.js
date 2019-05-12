@@ -49,7 +49,6 @@ var pages = {
     ["#","folder-open","Code","~/hack.sh"],
   ],
   "Home":[ // Index page loads at and resets to on end of search or 'esc'
-    ["javascript:window.history.back();","chevron-left","Back","To the Future","*"],
     ["~Github"], // example of reference
     ["https://gmail.com","envelope-o","Gmail","Mails","google"],
     ["https://keep.google.com","list","Keep","Tasks"],
