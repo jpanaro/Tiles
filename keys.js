@@ -3,8 +3,10 @@ var cached = pages["Home"]; // last visited page
 var tileCount = 12;
 var skipCount = 4;
 var disabledTiles = 0;
+
 var pageHistory = [];
-var currentPage = undefined;
+var pagePresent = undefined;
+var pageFuture = [];
 
 /*
   *************************************************
@@ -115,10 +117,10 @@ function page_gen(id, page, save_to_history = true) { // id for focus element
   }
 
   // save current page into history before generating new page
-  if (currentPage != undefined && save_to_history) {
-    pageHistory.push(currentPage);
+  if (pagePresent != undefined && save_to_history) {
+    pageHistory.push(pagePresent);
   }
-  currentPage = page;
+  pagePresent = page;
 
   if (page != pages["Home"]) {
     // Add a 'back to home' tile
@@ -127,23 +129,15 @@ function page_gen(id, page, save_to_history = true) { // id for focus element
 
   cached = page;
   if (page.length > 12) {
-    /*
-      TODO :: Implement for loop for more than 24 results
-        for set of 12 {
-          next = Array.from(page);
-          page.splice(11, 11, ["#next"+String(i),"ab","Next",String(page.length -11) + " More Results","*"]); [page shrinks by 11 tiles]
-          next.splice(0,11,["#back"+String(i),"ba","Back","Previous Results","*"]);
-          pages["next" + i] = next
-          pages["back" + i] = page
-        }
-      - i denotes level of depth
-    */
-    next = Array.from(page); // de references array
-    page.splice(11, 11, ["#","chevron-right","Next",String(page.length - 11) + " More Results","*"]); // stores results 12+
-    next.splice(0,11,["#","ba","Back","Previous Results","*"]); // stores current page (for back button)
-    pages["Next"] = next; // stores temporary back page
-    pages["Back"] = page; // stores temp next page
-  };
+    var currentPage = page.slice(0,11);
+    currentPage["11"] = [">","chevron-right","Next", " more results","*"];
+    pageFuture = page.slice(11, page.length);
+    page = currentPage;
+  }
+  else {
+    pageFuture = [];
+  }
+
   try {
     for (var num =1; num<=tileCount; num++) {
         tile = page[num-1];
@@ -173,6 +167,9 @@ function page_gen(id, page, save_to_history = true) { // id for focus element
           }
           else if (url[0] == "<") { // if back button
             tile[0] = "javascript:page_gen(1, pageHistory.pop(), false);";
+          }
+          else if (url[0] == ">") { // if back button
+            tile[0] = "javascript:page_gen(1, pageFuture);";
           }
           else { // for normal url redirects
             tile[0] = url.replace("VAR",encodeURIComponent(document.getElementById("search").value.replace(term,""))); // searches only with correct symbols
