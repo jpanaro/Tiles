@@ -3,6 +3,9 @@ var cached = pages["Home"]; // last visited page
 var tileCount = 12;
 var skipCount = 4;
 var disabledTiles = 0;
+var pageHistory = [];
+var currentPage = undefined;
+
 /*
   *************************************************
   Page load functions (in order)
@@ -104,16 +107,22 @@ function set_tile(num, array) {
   }
 };
 
-function page_gen(id, page) { // id for focus element
+function page_gen(id, page, save_to_history = true) { // id for focus element
   reset_tile_count();
 
   if (page == undefined) { // page_gen() -> defaults to pages["Home"]
     page = pages["Home"];
   }
 
+  // save current page into history before generating new page
+  if (currentPage != undefined && save_to_history) {
+    pageHistory.push(currentPage);
+  }
+  currentPage = page;
+
   if (page != pages["Home"]) {
     // Add a 'back to home' tile
-    page = [["javascript:page_gen(1, pages[\"Home\"]);","chevron-left","Back","To the Future","*"]].concat(page);
+    page = [["<","chevron-left","Back","To the Future","*"]].concat(page);
   }
 
   cached = page;
@@ -160,7 +169,10 @@ function page_gen(id, page) { // id for focus element
             tile[0] = "javascript:page_gen(2,pages[\""+tile[2]+"\"])"; // Opens folder and sets cursor to 2
           }
           else if (url[0] == "$") { // if theme
-            tile[0] = "javascript:set_theme(\""+tile[2]+"\",2); javascript:page_gen(1)";
+            tile[0] = "javascript:set_theme(\""+tile[2]+"\",2);";
+          }
+          else if (url[0] == "<") { // if back button
+            tile[0] = "javascript:page_gen(1, pageHistory.pop(), false);";
           }
           else { // for normal url redirects
             tile[0] = url.replace("VAR",encodeURIComponent(document.getElementById("search").value.replace(term,""))); // searches only with correct symbols
@@ -179,24 +191,6 @@ function page_gen(id, page) { // id for focus element
   };
 
   tileCount = tileCount - disabledTiles; // Every page has a separate number of tiles
-
-  for (var i =1; i<=tileCount;i++){
-    tile = page[i-1];
-    var url = tile[0];
-    if (url[0] == "#") { // checks for folder urls
-      document.getElementById(i).onclick = function() {
-        page_gen(2,pages[tile[2]]);
-        return false;
-      };
-    }
-    else if (url[0] == "$") { // if theme
-      document.getElementById(i).onclick = function() {
-        set_theme(tile[2],2);
-        page_gen(1);
-        return false;
-      };
-    }
-  };
 };
 /*
   *************************************************
