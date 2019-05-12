@@ -181,12 +181,21 @@ function page_gen(id, page) { // id for focus element
   tileCount = tileCount - disabledTiles; // Every page has a separate number of tiles
 
   for (var i =1; i<=tileCount;i++){
-    if (document.getElementById(i) != null && document.getElementById(i).href.includes("javascript:")){
-      document.getElementById(i).onclick = function(){
-        eval(this.href.replace("javascript:",""));
+    tile = page[i-1];
+    var url = tile[0];
+    if (url[0] == "#") { // checks for folder urls
+      document.getElementById(i).onclick = function() {
+        page_gen(2,pages[tile[2]]);
         return false;
       };
-    };
+    }
+    else if (url[0] == "$") { // if theme
+      document.getElementById(i).onclick = function() {
+        set_theme(tile[2],2);
+        page_gen(1);
+        return false;
+      };
+    }
   };
 };
 /*
