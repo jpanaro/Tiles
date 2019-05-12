@@ -7,7 +7,7 @@ A keyboard centric, feature rich, responsive design homepage!
 ![Website](https://img.shields.io/website/https/boettner-eric.github.io/Tiles/index.html.svg?down_color=red&down_message=offline&up_color=light%20green&up_message=online)
 ## [**Live Demo**](https://kishlaya.github.io/Tiles/index.html)
 
-![Skeletor theme](Screenshots/skeletor.png)
+![Switch theme](Screenshots/switch.png)
 
 ### Benefits over **[Homepage](https://github.com/Boettner-eric/Homepage)**
 
