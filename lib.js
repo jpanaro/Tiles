@@ -37,9 +37,10 @@ var pages = {
     // links
     ["https://www.linkedin.com","linkedin","Linkedn","Professional"],
     ["https://github.com","github","Github","Repos"],
-    ["https://reddit.com/r/unixporn","reddit-alien","Reddit","r/unixporn"],
+    ["https://reddit.com/","reddit-alien","Reddit","Home"],
     ["https://www.youtube.com/","youtube-play","Youtube","Daily Tech Fix"],
     // folders
+    ["#","folder-open","SubReddits","The Front Page"],
     ["#","folder-open","Themes","Colors"],
     ["#","wrench","Settings","Colors"],
     ["#","folder-open","News","Headlines"],
@@ -52,8 +53,8 @@ var pages = {
     ["~Github"], // example of reference
     ["https://gmail.com","envelope-o","Gmail","Mails","google"],
     ["https://keep.google.com","list","Keep","Tasks"],
-    ["~Reddit"],
     ["~Youtube"],
+    ["~SubReddits"],
     ["~Networks"],
     ["~Code"],
     ["~Media"],
@@ -133,6 +134,17 @@ var pages = {
     ["https://www.netflix.com/search?q=VAR","search","Netflix","\"VAR\"",term],
     ["https://duckduckgo.com/?q=VAR","search","DuckDuckGo","\"VAR\"",term],
     ["https://www.wolframalpha.com/input/?i=VAR","plus","Wolfram","\"VAR\"",term],
+  ],
+  "SubReddits":[
+    ["~Reddit"],
+    ["https://reddit.com/r/startpages","reddit-alien","Reddit","r/startpages"],
+    ["https://reddit.com/r/coolgithubprojects","reddit-alien","Reddit","r/coolgithubprojects"],
+    ["https://reddit.com/r/github","reddit-alien","Reddit","r/github"],
+    ["https://reddit.com/r/WebDev","reddit-alien","Reddit","r/WebDev"],
+    ["https://reddit.com/r/Frontend","reddit-alien","Reddit","r/Frontend"],
+    ["https://reddit.com/r/JavaScript","reddit-alien","Reddit","r/JavaScript"],
+    ["https://reddit.com/r/Haskell","reddit-alien","Reddit","r/Haskell"],
+    ["https://reddit.com/r/Jokes","reddit-alien","Reddit","r/Jokes"],
   ],
   "Themes":[ // put tiles for each theme here
     ["$","desktop","Gogh","Blue Green Yellow",["#0F8AA6","#0E7995","#6BE8AE","#F5D45B"]],
